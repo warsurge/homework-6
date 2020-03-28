@@ -1,0 +1,32 @@
+.container{
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.card-header{
+    font-size: xx-large;
+    text-align: center;
+    background-color: forestgreen;
+    color: yellow
+}
+.column{
+    display:flex;
+    width: 20%;
+    border: black;
+    border-width: 3px;
+    border-color: black;
+}
+
+.row{
+    border: black;
+    border-width: 3px;
+    border-color: black;
+}
+/* .column2{
+    content: "";
+  display: table;
+  clear: both;
+  width: 80%;
+  border-width:5px;
+  border-color: black;
+} */
