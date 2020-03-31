@@ -6,9 +6,12 @@ $(document).ready(function () {
     $("#getWeather").on("click", function() {
         var userInput = $("#city-search").val();
         displayWeather(userInput);
+        window.localStorage.setItem('citySearch', JSON.stringify(userInput));
       });
 
     var cities = [];
+
+    
 
     function displayWeather(city) {
 
@@ -35,11 +38,13 @@ $(document).ready(function () {
             $("#curWind").text("Wind Speed: "+wind + " MPH")
 
             
-            // cloud cover,ozone thickness,time of year,elevation
-            var lat= response.coord.lon;
-            var lon= response.coord.lat;
+            
+            var lon= response.coord.lon;
+            var lat= response.coord.lat;
 
             $.ajax({
+
+                // http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}
                 url:"http://api.openweathermap.org/data/2.5/uvi?appid="+ apiKey+ "&lat="+ lat + "&lon="+ lon,
                 method: "GET",
                 dataType:"json"
@@ -47,8 +52,8 @@ $(document).ready(function () {
             }).then(function(response1){
                 console.log(response1)
 
-                // var uv=
-            // $("#curUv").text(uv)
+                var uv= response1.value
+                $("#curUv").text("UV Index: "+ uv)
                 
             })
         });
