@@ -13,33 +13,33 @@ THEN I am again presented with current and future conditions for that city -->
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Me This</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Me This</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="javascript.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="javascript.js"></script>
 </head>
 
 <body>
 
-    <div class="card border-dark mb-3" style="max-width: 80%;">
-        <div class="card-header1">Weather Me This!</div>
-        <div class="card-body text-dark">
+  <div class="card border-dark mb-3" style="max-width: 80%;">
+    <div class="card-header1">Weather Me This!</div>
+    <div class="card-body text-dark">
 
-    <div class='container'>
+      <div class='container'>
         <div class='row'>
           <div class='col-md-4'>
             <div class='card search-section'>
@@ -47,13 +47,13 @@ THEN I am again presented with current and future conditions for that city -->
                 <label>Search For a City:</label>
                 <div class="input-group mb-3">
                   <input id="city-search" type="text" class="form-control" placeholder="City, State">
-                    <div class="input-group-append">
-                      <button id='getWeather' class="btn btn-success" type="submit">
-                        Search
-                      </button>
-                    </div>
+                  <div class="input-group-append">
+                    <button id='getWeather' class="btn btn-success" type="submit">
+                      Search
+                    </button>
                   </div>
-            
+                </div>
+
                 <div id='past-cities'></div>
               </div>
             </div>
@@ -63,8 +63,8 @@ THEN I am again presented with current and future conditions for that city -->
               <div class='card'>
                 <div class='card-body'>
                   <h5 class='card-title' id='cityName'>City</h5>
-                  
-                  <ul>  
+
+                  <ul>
                     <li class='card-text' id='curTemp'>Temp:</li>
                     <li class='card-text' id='curHum'>Humidity:</li>
                     <li class='card-text' id='curWind'>Windspeed:</li>
@@ -72,16 +72,44 @@ THEN I am again presented with current and future conditions for that city -->
                   </ul>
                 </div>
               </div>
+            </div>
+            <div class='row'>
+              <h2 class='card-title'>5-Day Forecast</h2>
+            </div>
+            <div class='row' id='forecast'>
+            <div class='col-md-10'>
+              <div class='card-body' id="day1">
+                <ul>
+                  <li class='card-text' id='futureTemp1'>Temp:</li>
+                  <li class='card-text' id='futureHum1'>Humidity:</li>
+                </ul>
+              </div>
+              <div class='card-body' id="day2"><ul>
+                <li class='card-text' id='futureTemp2'>Temp:</li>
+                <li class='card-text' id='futureHum2'>Humidity:</li>
+              </ul></div>
+              <div class='card-body' id="day3"><ul>
+                <li class='card-text' id='futureTemp3'>Temp:</li>
+                <li class='card-text' id='futureHum3'>Humidity:</li>
+              </ul></div>
+              <div class='card-body' id="day4" ><ul>
+                <li class='card-text' id='futureTemp4'>Temp:</li>
+                <li class='card-text' id='futureHum4'>Humidity:</li>
+                
+              </ul></div>
+              <div class='card-body' id="day5" ><ul>
+                <li class='card-text' id='futureTemp5'>Temp:</li>
+                <li class='card-text' id='futureHum5'>Humidity:</li>
+              </ul></div>
+
+            </div>
+            </div>
           </div>
-          <div class='row'>
-              <h2 class='card-title'>5-Day Forcast</h2>
-          </div>
-          <div class='row' id='forecast'></div>
         </div>
-      </div>
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js' integrity='sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=' crossorigin='anonymous'></script>
-      <script src='./javascript.js'></script>
-    </body>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js'
+          integrity='sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=' crossorigin='anonymous'></script>
+        <script src='./javascript.js'></script>
+</body>
 
 </html>
