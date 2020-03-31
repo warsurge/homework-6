@@ -1,32 +1,22 @@
-.container{
-    max-width: 75%;
-    max-height: 75%;
+.container1{
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.card-header{
+h3{
+    background-color: forestgreen;
+    color: gold;
+}
+
+.card-header1{
     font-size: xx-large;
     text-align: center;
     background-color: forestgreen;
-    color: yellow
-}
-.column{
-    display:flex;
-    width: 20%;
-    border: black;
-    border-width: 3px;
-    border-color: black;
+    color: gold
 }
 
-.row{
+.box{
+    flex-wrap: wrap;
     border: black;
-    border-width: 3px;
-    border-color: black;
+    border-width: 5px;
 }
-/* .column2{
-    content: "";
-  display: table;
-  clear: both;
-  width: 80%;
-  border-width:5px;
-  border-color: black;
-} */

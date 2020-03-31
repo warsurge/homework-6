@@ -28,54 +28,60 @@ THEN I am again presented with current and future conditions for that city -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="javascript.js"></script>
 </head>
 
 <body>
-    <div class="container">
 
-        <div class="card border-dark mb-3" style="max-width: 80%;">
-            <div class="card-header">Weather Me This!</div>
-            <div class="card-body text-dark">
+    <div class="card border-dark mb-3" style="max-width: 80%;">
+        <div class="card-header1">Weather Me This!</div>
+        <div class="card-body text-dark">
 
-                <div class="row">
-
-                    <div class="column">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla in
-                        officia suscipit obcaecati. Unde reprehenderit in eius, commodi aut itaque placeat, optio ullam
-                        laudantium aperiam rem temporibus repellendus ducimus!</div>
-
-                    <div class="column">
-
-                        <div class = "row">
-
-                        <div id = "weather" class="row">
-                        <h4 class="card-title">city info</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        </div>
+    <div class='container'>
+        <div class='row'>
+          <div class='col-md-4'>
+            <div class='card search-section'>
+              <div class='card-body'>
+                <label>Search For a City:</label>
+                <div class="input-group mb-3">
+                  <input id="city-search" type="text" class="form-control" placeholder="City, State">
+                    <div class="input-group-append">
+                      <button id='getWeather' class="btn btn-success" type="submit">
+                        Search
+                      </button>
                     </div>
-
-                    <div class = "row">
-
-                        <div id ="fiveDay" class ="row">
-                            5 day forcast
-                        </div>
-                    </div>
-
-                    </div>
-
-                </div>
-
-
-
-
+                  </div>
+            
+                <div id='past-cities'></div>
+              </div>
             </div>
-
+          </div>
+          <div class='col-md-8 '>
+            <div class='row'>
+              <div class='card'>
+                <div class='card-body'>
+                  <h5 class='card-title' id='cityName'>City</h5>
+                  
+                  <ul>  
+                    <li class='card-text' id='curTemp'>Temp:</li>
+                    <li class='card-text' id='curHum'>Humidity:</li>
+                    <li class='card-text' id='curWind'>Windspeed:</li>
+                    <li class='card-text' id='curUv'>UV Index:</li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          <div class='row'>
+              <h2 class='card-title'>5-Day Forcast</h2>
+          </div>
+          <div class='row' id='forecast'></div>
         </div>
-
-</body>
+      </div>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js' integrity='sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=' crossorigin='anonymous'></script>
+      <script src='./javascript.js'></script>
+    </body>
 
 </html>
