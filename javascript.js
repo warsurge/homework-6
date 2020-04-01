@@ -1,17 +1,29 @@
 $(document).ready(function () {
-
+    var userInput = $("#city-search").val();
     var apiKey = "08b0dd9f10a03bff1d46baba879a4a39"
 
 
     $("#getWeather").on("click", function () {
+        event.preventDefault();
+        var cities = [];
+        
         var userInput = $("#city-search").val();
         displayWeather(userInput);
         displayForecast(userInput)
         window.localStorage.setItem('cities', JSON.stringify(userInput));
+        
+        localStorage.setItem('cityNames', JSON.stringify(userInput));
+        cities.push(userInput)
+        var storedCity = JSON.parse(localStorage.getItem("cities"))
+
+        $(userInput).prepend(cities);
+        $("#past-cities").text(storedCity)
+        
     });
 
-    var cities = localStorage.getItem("cities");
-    cities = (cities) ? JSON.parse(cities) : [];
+
+
+
 
 
 
@@ -39,8 +51,6 @@ $(document).ready(function () {
             var wind = response.wind.speed
             $("#curWind").text("Wind Speed: " + wind + " MPH")
 
-
-
             var lon = response.coord.lon;
             var lat = response.coord.lat;
 
@@ -52,16 +62,11 @@ $(document).ready(function () {
 
             }).then(function (response1) {
 
-
                 var uv = response1.value
                 $("#curUv").text("UV Index: " + uv)
 
             })
-
-
         });
-
-
     }
 
     function displayForecast(city) {
@@ -73,52 +78,42 @@ $(document).ready(function () {
         }).then(function (response2) {
             console.log(response2);
 
-            
-                var temp = Math.floor((response2.list[0].main.temp - 273.15) * 1.80 + 32)
+            var temp = Math.floor((response2.list[0].main.temp - 273.15) * 1.80 + 32)
 
-                $("#futureTemp1").text("Temp: " + temp + " F")
+            $("#futureTemp1").text("Temp: " + temp + " F")
 
-                var humidity = response2.list[0].main.humidity
-                $("#futureHum1").text("Humidity: " + humidity)
-            
-           
-            
-                var temp = Math.floor((response2.list[1].main.temp - 273.15) * 1.80 + 32)
+            var humidity = response2.list[0].main.humidity
+            $("#futureHum1").text("Humidity: " + humidity)
 
-                $("#futureTemp2").text("Temp: " + temp + " F")
+            var temp = Math.floor((response2.list[1].main.temp - 273.15) * 1.80 + 32)
 
-                var humidity = response2.list[1].main.humidity
-                $("#futureHum2").text("Humidity: " + humidity)
-                
+            $("#futureTemp2").text("Temp: " + temp + " F")
 
-                
-                    var temp = Math.floor((response2.list[2].main.temp - 273.15) * 1.80 + 32)
+            var humidity = response2.list[1].main.humidity
+            $("#futureHum2").text("Humidity: " + humidity)
 
-                    $("#futureTemp3").text("Temp: " + temp + " F")
+            var temp = Math.floor((response2.list[2].main.temp - 273.15) * 1.80 + 32)
 
-                    var humidity = response2.list[2].main.humidity
-                    $("#futureHum3").text("Humidity: " + humidity)
-                
+            $("#futureTemp3").text("Temp: " + temp + " F")
 
-                    
-                        var temp = Math.floor((response2.list[3].main.temp - 273.15) * 1.80 + 32)
+            var humidity = response2.list[2].main.humidity
+            $("#futureHum3").text("Humidity: " + humidity)
 
-                        $("#futureTemp4").text("Temp: " + temp + " F")
+            var temp = Math.floor((response2.list[3].main.temp - 273.15) * 1.80 + 32)
 
-                        var humidity = response2.list[3].main.humidity
-                        $("#futureHum4").text("Humidity: " + humidity)
-                        
+            $("#futureTemp4").text("Temp: " + temp + " F")
 
-                        
-                            var temp = Math.floor((response2.list[4].main.temp - 273.15) * 1.80 + 32)
+            var humidity = response2.list[3].main.humidity
+            $("#futureHum4").text("Humidity: " + humidity)
 
-                            $("#futureTemp5").text("Temp: " + temp + " F")
+            var temp = Math.floor((response2.list[4].main.temp - 273.15) * 1.80 + 32)
 
-                            var humidity = response2.list[4].main.humidity
-                            $("#futureHum5").text("Humidity: " + humidity)
-                            
+            $("#futureTemp5").text("Temp: " + temp + " F")
 
-            
+            var humidity = response2.list[4].main.humidity
+            $("#futureHum5").text("Humidity: " + humidity)
+
+
         })
 
     }

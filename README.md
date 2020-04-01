@@ -1,10 +1,6 @@
 # homework-6
 # 06 Server-Side APIs: Weather Dashboard
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
-
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
-
 ## User Story
 
 ```
@@ -27,3 +23,14 @@ WHEN I view future weather conditions for that city
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
+
+## What I Did
+
+* I started out with the html layout so that way it would be easier for my jquery to link up.
+* I then sstarted to add some css to sytle the page.
+* I then started working on getting the weather API to link up so that I could get the weather information.
+* I then realized that the forecast would need a different website so I created a function for it as well.
+* After some trial and error I was able to figure out how to get the uv-index to work.
+* I was able to get the results for the 5 day forcast on the page.
+* The final piece I worked on was the local storage. I was able to set things in and pull them out but was not able to make them in list form.
+
